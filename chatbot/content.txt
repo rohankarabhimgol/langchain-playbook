@@ -1,0 +1,35 @@
+# 1. CREATE THE TEMPLATE (Blueprint)
+prompt_template = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful assistant"),
+    ("user", "Question: {question}")  # ← Placeholder for user input
+])
+
+# 2. CREATE THE LLM (Brain)
+llm = OllamaLLM(model="llama3.2")
+
+# 3. CREATE OUTPUT PARSER (Formatter)
+output_parser = StrOutputParser()
+
+# 4. CREATE THE CHAIN (Assembly Line)
+chain = prompt_template | llm | output_parser
+# This connects: Template → LLM → Formatter
+
+# 5. INVOKE THE CHAIN (Run it with actual input)
+if user_question:
+    response = chain.invoke({"question": user_question})
+    # Magic happens: "{question}" → actual user question
+
+
+User Question: "What is AI?"
+         ↓
+[PROMPT TEMPLATE] 
+System: "You are a helpful assistant"
+User: "Question: What is AI?"  ← Question inserted here
+         ↓
+[LLM (Ollama llama3.2)]
+Processes the complete prompt
+         ↓
+[OUTPUT PARSER]
+Extracts clean text response
+         ↓
+Final Answer: "AI stands for Artificial Intelligence..."

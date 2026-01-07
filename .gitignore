@@ -1,0 +1,93 @@
+# ================================
+# Project-Specific Ignores
+# ================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+secrets.ini
+config.json
+
+# API keys and sensitive data
+*.key
+*.pem
+credentials/
+keys/
+
+# ================================
+# Virtual Environments
+# ================================
+venv/
+.venv/
+env/
+ENV/
+python_env/
+
+# ================================
+# Python
+# ================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ================================
+# Jupyter Notebooks
+# ================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ================================
+# IDE
+# ================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ================================
+# OS generated files
+# ================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ================================
+# LangChain/ML Specific
+# ================================
+chroma_db/           # Vector database
+*.faiss              # FAISS indexes
+*.pkl                # Pickle files
+*.joblib             # Joblib files
+models/              # Downloaded models
+
+# Vector databases and embeddings
+rag/data/vector_store/
+*.faiss
+*.bin
+chroma_db/
